@@ -2,6 +2,8 @@ package ie.atu.wtcfoodservice;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FoodService {
     private final FoodRepository foodRepository;
@@ -11,10 +13,8 @@ public class FoodService {
     }
 
 
-    public Food getFoods(){
-        Food newFood = new Food("Apple", "ImageURL");
-        return newFood;
-
+    public List<Food> getFoods(){
+        return foodRepository.findAll();
     }
 
 }
