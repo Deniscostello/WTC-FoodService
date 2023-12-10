@@ -22,5 +22,8 @@ public class Food {
     @NotBlank(message = "Food Image cannot be blank")
     private String foodImage;
 
+    @NotBlank(message = "prediction cannot be blank")
+    private String prediction;
+
 
 }
