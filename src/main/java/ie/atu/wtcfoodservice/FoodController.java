@@ -1,8 +1,12 @@
 package ie.atu.wtcfoodservice;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class FoodController {
@@ -14,8 +18,7 @@ public class FoodController {
 
 
     @GetMapping("food/getAllFood")
-    public ResponseEntity<?> getAllFood(){
-        Food food=foodService.getFoods();
-        return ResponseEntity.ok(food);
+    public ResponseEntity<List<Food>> getAllFood(){
+        return new ResponseEntity<List<Food>>(foodService.getFoods(), HttpStatus.OK);
     }
 }
