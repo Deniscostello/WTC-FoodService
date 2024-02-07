@@ -2,7 +2,6 @@ package ie.atu.wtcfoodservice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,9 +18,10 @@ public class FoodController {
     }
 
 
-    @GetMapping("food/getAllFood")
+    @PostMapping("food/getAllFood")
     public ResponseEntity<Map<String, List<Food>>> getAllFood(){
         List<Food> foods = foodService.getFoods();
+        System.out.println(foods);
         Map<String, List<Food>> response = new HashMap<>();
         response.put("foods", foods);
         return new ResponseEntity<>(response,HttpStatus.OK);
